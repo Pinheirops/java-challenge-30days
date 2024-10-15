@@ -18,21 +18,29 @@ public class ExercicioTurma {
                System.out.println("DIGITE A ALTURA");
                altura = teclado.nextFloat();
 
+
                if (sexo.equals("M")){
+                   if (contador == 1){
+                       menorAltura = altura;
+                   }
                    qntHomens++;
                    contador++;
                    media = media + altura;
                } else if (sexo.equals("F")){
+                   if (contador == 1){
+                       menorAltura = altura;
+                   }
                    qntMulheres++;
                    contador++;
                } else {
                        System.out.println("RESPOSTA INVALIDA - TENTE NOVAMENTE");
                }
 
+
                 if (altura > maiorAltura){
                     maiorAltura = altura;
-                    menorAltura = altura;
                 }
+
 
                 if (altura < menorAltura){
                     menorAltura = altura;
