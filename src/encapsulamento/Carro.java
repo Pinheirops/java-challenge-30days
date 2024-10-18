@@ -18,4 +18,12 @@ public class Carro {
         return chassi;
     }
 
+    public void setMarca(String marca){
+        this.marca = marca;
+    }
+
+    public void setChassi(int chassi){
+        this.chassi = chassi;
+    }
+
 }

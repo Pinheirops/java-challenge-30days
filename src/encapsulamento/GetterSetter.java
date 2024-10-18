@@ -7,5 +7,10 @@ public class GetterSetter {
         System.out.println(carro01.getMarca());
         System.out.println(carro01.getChassi());
 
+        carro01.setMarca("Toyota");
+        carro01.setChassi(011334);
+        System.out.println(" ");
+        System.out.println("O chassi do carro é: " + carro01.getChassi());
+        System.out.println("A marca do carro é: " + carro01.getMarca());
     }
 }
