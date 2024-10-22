@@ -8,7 +8,7 @@ public class Automovel {
     private String cor;
     private int ano;
 
-    public Automovel(String nome, String marca, String modelo, String cor, int ano){
+    public Automovel(String nome, String modelo, String cor, String marca, int ano){
         this.nome = nome;
         this.marca = marca;
         this.modelo = modelo;
