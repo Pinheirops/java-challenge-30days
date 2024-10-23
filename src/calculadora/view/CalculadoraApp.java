@@ -14,31 +14,35 @@ public class CalculadoraApp {
             System.out.print("| ");
             double valor01 = teclado.nextDouble();
             double cont = valor01;
-            System.out.print(cont + " ");
+            System.out.print(cont);
             String opSelect = null;
+            double valor02 = 0;
 
             do {
                 // entrada do operador selecionado
                 opSelect = teclado.next();
 
-                // entrada do segundo valor para o calculo
-                System.out.print("| ");
-                double valor02 = teclado.nextDouble();
+                if(!opSelect.equals("C")){
+                    // entrada do segundo valor para o calculo
+                    System.out.print("| ");
+                    valor02 = teclado.nextDouble();
+                }
 
                 if (opSelect.equals("+")) {
                     cont = somar(cont, valor02);
-                    System.out.println("= " + cont);
+                    System.out.print("= " + cont);
                 } else if(opSelect.equals("-")){
                     cont = subtrair(cont, valor02);
-                    System.out.println("= " + cont);
+                    System.out.print("= " + cont);
                 } else if(opSelect.equals("*")){
                     cont = multiplicar(cont, valor02);
-                    System.out.println("= "  + cont);
+                    System.out.print("= "  + cont);
                 } else if(opSelect.equals("/")){
                     cont = dividir(cont, valor02);
-                    System.out.println("= " + cont);
+                    System.out.print("= " + cont);
                 } else if(opSelect.equals("C")) {
                     cont = 0;
+                    System.out.print("= " + cont);
                 }else{
                     System.out.print("OPERAÇÃO INVÁLIDA - TENTE NOVAMENTE");
                 }
