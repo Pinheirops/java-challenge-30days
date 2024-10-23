@@ -1,7 +1,6 @@
 package calculadora.view;
 
 import java.util.Scanner;
-import calculadora.model.operacoes;
 
 public class CalculadoraApp {
     public static void main(String[] args){
@@ -15,20 +14,35 @@ public class CalculadoraApp {
         System.out.println("/ - Divisão");
         System.out.println("C - Zerar");
 
-
+        System.out.println("Entre com um número");
         double numero = teclado.nextInt();
-        double contador = numero;
-        System.out.println("DISPLAY: " + contador);
+        double acumulador = numero;
+
+        System.out.println("DISPLAY: " + acumulador);
+
+        System.out.println("Digite o sinal da operação desejada");
         String opSelect = teclado.next();
+
         if(opSelect.equals("+")){
-            System.out.print(contador + " + ");
-            numero = teclado.nextInt();
-            operacoes.somar(numero, contador);
+            while(opSelect.equals("+")){
+                System.out.print(acumulador + " + ");
+                numero = teclado.nextInt();
+                somar(numero, acumulador);
+                acumulador = acumulador + numero;
+                System.out.println("DISPLAY: " + acumulador);
+                System.out.println("Digite o sinal da operação desejada");
+                opSelect = teclado.next();
+            }
         }
 
 
 
 
 
+    }
+
+    private static double somar(double numero, double valorTotal) {
+        double soma = numero + valorTotal;
+        return soma;
     }
 }
