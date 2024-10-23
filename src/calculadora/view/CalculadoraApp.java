@@ -6,82 +6,76 @@ public class CalculadoraApp {
     public static void main(String[] args){
 
         Scanner teclado = new Scanner(System.in);
-        double acumulador = 0;
 
-        System.out.println("--------------------");
-        System.out.println("| " + acumulador +"              |");
-        System.out.println("|------------------|");
-        System.out.println("| OPERAÇÕES:       |");
-        System.out.println("| ( + ) Soma       |");
-        System.out.println("| ( - ) Subtração  |");
-        System.out.println("| ( * ) - Multip   |");
-        System.out.println("| ( / )- Divisão   |");
-        System.out.println("| ( C )- Zerar     |");
-        System.out.println("|------------------|");
+        // exibe as operações da calculadora
+        intro();
 
-        System.out.print("| "  );
-        double numero = teclado.nextDouble();
-        acumulador = acumulador + numero;
+            // entrada do primeiro valor para o calculo
+            System.out.print("| ");
+            double valor01 = teclado.nextDouble();
+            double cont = valor01;
+            System.out.print(cont + " ");
+            String opSelect = null;
 
-        System.out.print("| " + acumulador + " ");
-        String opSelect = teclado.next();
-
-        if(opSelect.equals("+")){
-            while(opSelect.equals("+")){
-                System.out.print("| " + acumulador + " + ");
-                numero = teclado.nextDouble();
-
-                // Essa parte ainda não está funcionando conforme o esperado.
-                somar(numero, acumulador);
-                acumulador = acumulador + numero;
-
-                System.out.println("RESULTADO: " + acumulador);
-                System.out.println("-");
-
-                System.out.println("Digite o sinal da operação desejada");
+            do {
+                // entrada do operador selecionado
                 opSelect = teclado.next();
-            }
-        }
 
-        if(opSelect.equals("-")){
-            System.out.print("| " + acumulador + " - ");
-            numero = teclado.nextDouble();
+                // entrada do segundo valor para o calculo
+                System.out.print("| ");
+                double valor02 = teclado.nextDouble();
 
-            // Essa parte ainda não está funcionando conforme o esperado.
-            somar(numero, acumulador);
-            acumulador = acumulador - numero;
+                if (opSelect.equals("+")) {
+                    cont = somar(cont, valor02);
+                    System.out.println("= " + cont);
+                } else if(opSelect.equals("-")){
+                    cont = subtrair(cont, valor02);
+                    System.out.println("= " + cont);
+                } else if(opSelect.equals("*")){
+                    cont = multiplicar(cont, valor02);
+                    System.out.println("= "  + cont);
+                } else if(opSelect.equals("/")){
+                    cont = dividir(cont, valor02);
+                    System.out.println("= " + cont);
+                } else if(opSelect.equals("C")) {
+                    cont = 0;
+                }else{
+                    System.out.print("OPERAÇÃO INVÁLIDA - TENTE NOVAMENTE");
+                }
 
-            System.out.println("RESULTADO: " + acumulador);
-            System.out.println("-");
 
-
-            System.out.println("Digite o sinal da operação desejada");
-            opSelect = teclado.next();
-        }
-
-
-
-
+            }while (opSelect.equals("+") || opSelect.equals("-") || opSelect.equals("*") || opSelect.equals("/") || (opSelect.equals("C")));
 
     }
 
-    private static double somar(double numero, double valorTotal) {
-        double soma = numero + valorTotal;
+    public static void intro(){
+        System.out.println("| OPERAÇÕES:");
+        System.out.println("( + ) - Soma");
+        System.out.println("( - ) - Subtração");
+        System.out.println("( * ) - Multip");
+        System.out.println("( / ) - Divisão");
+        System.out.println("( C ) - Zerar");
+    }
+
+    public static double somar(double num1, double num2) {
+        double soma = num1 + num2;
         return soma;
     }
 
-    private static double subtrair(double numero, double valorTotal){
-        double subtracao = numero - valorTotal;
+    public static double subtrair(double num1, double num2){
+        double subtracao = num1 - num2;
         return subtracao;
     }
 
-    private static double multiplicar(double numero, double valorTotal){
-        double multiplicacao = numero * valorTotal;
+
+    public static double multiplicar(double num1, double num2){
+        double multiplicacao = num1 * num2;
         return multiplicacao;
     }
 
-    private static double dividir(double numero, double valorTotal){
-        double divisao = numero / valorTotal;
+    public static double dividir(double num1, double num2){
+        double divisao = num1 / num2;
         return divisao;
     }
+
 }
